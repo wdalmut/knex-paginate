@@ -1,0 +1,38 @@
+{
+  "name": "@wdalmut/knex-paginator",
+  "version": "0.0.1",
+  "description": "Paginate knex query results",
+  "main": "src/index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-node": "^9.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "jasmine": "^3.4.0",
+    "knex": "^0.16.5",
+    "mysql2": "^1.6.5",
+    "node-uuid": "^1.4.8"
+  },
+  "scripts": {
+    "test": "docker-compose run app ./node_modules/.bin/jasmine",
+    "lint": "./node_modules/.bin/eslint .",
+    "db:seed": "docker-compose run app ./node_modules/.bin/knex seed:run",
+    "db:rollback": "docker-compose run app ./node_modules/.bin/knex migrate:rollback",
+    "db:migrate": "docker-compose run app ./node_modules/.bin/knex migrate:latest",
+    "db:create": "docker-compose run db mysql -hdb -uroot -proot -e 'create database test;'",
+    "db:sql": "docker-compose run db mysql -hdb -uroot -proot"
+  },
+  "author": "Walter Dal Mut <walter.dalmut@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/wdalmut/knex-paginate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wdalmut/knex-paginate/issues"
+  },
+  "homepage": "https://github.com/wdalmut/knex-paginate#readme"
+}
